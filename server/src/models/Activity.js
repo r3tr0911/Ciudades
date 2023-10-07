@@ -16,14 +16,22 @@ module.exports = (sequelize) => {
     Dificultad: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {
+        min: 1, 
+        max: 5, 
+      },
     },
     Duración: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT, 
       allowNull: false,
+      validate: {
+        min: 0, 
+      },
     },
     Temporada: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+
   });
 };

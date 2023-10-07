@@ -9,19 +9,19 @@ searchCountriesId.get('/countries/:idPais', async (req, res) => {
 
   try {
     // Consultamos la base de datos local para obtener el país por su ID 
-    const response = await axios.get(`http://localhost:5000/countries/${idPais}`);
+    const response = await axios.get(`http://localhost:5000/countries/${cca3}`);
     const { data } = response;
 
     const countryFromDb = await Country.findOne({
       where: { id: cca3 },
-          include: Activity
+      include: Activity
     });
 
     if (countryFromDb) {
       return res.status(200).json(countryFromDb);
     } else {
 
-      const {cca3 ,name, capital, population} = data;
+      const { cca3, name, capital, population } = data;
 
       const countryDetail = {
         cca3,
